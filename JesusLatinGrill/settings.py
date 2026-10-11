@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-gncl##)1d(k6)f*r5g0g)p(mbjdjvp8*d#p8(s-1nuxm*uda*x
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["jacobS.pythonanywhere.com"]
 
 
 
@@ -107,6 +107,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 
