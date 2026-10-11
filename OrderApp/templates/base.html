@@ -25,6 +25,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'menu' %}">Menu</a>
                         </li>
+                        {% if user.is_staff %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'staff_orders' %}">
+                                    <i class="bi bi-receipt"></i> Incoming orders
+                                </a>
+                            </li>
+                        {% endif %}
                     </ul>
                     <ul class="navbar-nav">
                         {% if user.is_authenticated %}

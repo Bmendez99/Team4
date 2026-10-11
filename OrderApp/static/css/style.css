@@ -162,3 +162,134 @@ a:hover {
     background-color: #3c5820;
     border-color: #3c5820;
 }
+
+/* ---------- Staff: incoming orders page ---------- */
+
+.staff-orders h1 {
+    font-weight: 700;
+}
+
+.staff-connection {
+    font-size: 0.9rem;
+    color: var(--brand-success);
+}
+.staff-connection.is-offline {
+    color: var(--brand-primary);
+    font-weight: 600;
+}
+
+.staff-lane h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 4px solid;
+}
+.staff-lane[data-status="new"] h2 { border-color: var(--brand-accent); }
+.staff-lane[data-status="preparing"] h2 { border-color: var(--brand-primary); }
+.staff-lane[data-status="ready"] h2 { border-color: var(--brand-success); }
+
+.staff-count {
+    color: rgba(59, 42, 32, 0.55);
+    font-weight: 400;
+}
+
+.staff-empty {
+    color: rgba(59, 42, 32, 0.6);
+}
+
+/* Each order looks like a printed kitchen ticket. */
+.staff-ticket {
+    background: #fff;
+    border-radius: 4px;
+    padding: 0.85rem 1rem 1rem;
+    margin-bottom: 0.75rem;
+    border-left: 5px solid rgba(59, 42, 32, 0.15);
+    box-shadow: 0 0.15rem 0.5rem rgba(59, 42, 32, 0.08);
+}
+.staff-lane[data-status="new"] .staff-ticket { border-left-color: var(--brand-accent); }
+.staff-lane[data-status="preparing"] .staff-ticket { border-left-color: var(--brand-primary); }
+.staff-lane[data-status="ready"] .staff-ticket { border-left-color: var(--brand-success); }
+
+.staff-ticket.is-new {
+    animation: staff-flash 1.2s ease-out 2;
+}
+@keyframes staff-flash {
+    50% { background: #fdecc8; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .staff-ticket.is-new { animation: none; }
+}
+
+.staff-num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+}
+.staff-age {
+    font-weight: 600;
+    color: rgba(59, 42, 32, 0.6);
+}
+.staff-age.warn { color: #a86b00; }
+.staff-age.late { color: var(--brand-primary); }
+
+.staff-who {
+    color: rgba(59, 42, 32, 0.7);
+    margin: 0.15rem 0 0.6rem;
+}
+
+.staff-items {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+}
+.staff-items li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(59, 42, 32, 0.08);
+}
+.staff-items b {
+    display: inline-block;
+    min-width: 1.6rem;
+}
+
+.staff-note {
+    background: var(--brand-cream);
+    border-left: 3px solid var(--brand-accent);
+    padding: 0.4rem 0.6rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+/* Big tap targets for tablets in the kitchen. */
+.staff-btn {
+    flex: 1;
+    min-height: 48px;
+    font-weight: 600;
+    color: #fff;
+}
+.staff-btn:hover { color: #fff; filter: brightness(0.92); }
+.staff-btn-preparing { background-color: var(--brand-primary); }
+.staff-btn-ready { background-color: var(--brand-success); }
+.staff-btn-completed { background-color: var(--brand-dark); }
+.staff-btn-cancelled {
+    flex: 0 0 auto;
+    background: transparent;
+    color: var(--brand-primary);
+    border: 1px solid var(--brand-primary);
+}
+.staff-btn-cancelled:hover { color: var(--brand-primary); background: #fff; }
+
+.staff-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.25rem;
+    transform: translateX(-50%);
+    background: var(--brand-dark);
+    color: #fff;
+    padding: 0.65rem 1rem;
+    border-radius: 6px;
+    display: none;
+    max-width: calc(100% - 2rem);
+}
+.staff-toast.is-visible { display: block; }
